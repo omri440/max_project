@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'max_project';
+  featureSelected = 'recipes'
+onChangeSection(feature:string) {
+ this.featureSelected = feature;
+}
 }

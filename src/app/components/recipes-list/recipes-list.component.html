@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-xs-12">
+        <button mat-raised-button color="primary">Basic</button>
+
+    </div>
+    <hr>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        
+        <app-recipe-item *ngFor="let recipeEL of Recipes" [recipe]="recipeEL"></app-recipe-item>
+    </div>
+</div>
