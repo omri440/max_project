@@ -3,3 +3,6 @@
     flex-direction: column;
     align-items: flex-start;
   }
+  input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
+    border:1px solid red;
+  }

@@ -1,6 +1,7 @@
 import {  Injectable } from '@angular/core';
 import { RecipeModule } from '../models/recipe/recipe.module';
 import { ingridient } from '../shared/ingridient.model';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 
 
 
@@ -8,6 +9,7 @@ import { ingridient } from '../shared/ingridient.model';
   providedIn: 'root'
 })
 export class RecipesService {
+  recipesSubject: BehaviorSubject<RecipeModule[]> = new BehaviorSubject<RecipeModule[]>([]);
   RecipeId:number
   Recipes: RecipeModule[] = [ new RecipeModule("omri",
   "omri-desc",
@@ -19,9 +21,12 @@ export class RecipesService {
   
  constructor() { }
 
-  getRecipes(){
-    return this.Recipes.slice();
-  }
+ getRecipesOnstart(){
+  return  this.Recipes.slice()
+ }
+ getRecipes(): Observable<RecipeModule[]> {
+  return this.recipesSubject.asObservable();
+}
 
   
   getRecipesById(index:number){
