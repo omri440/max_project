@@ -6,7 +6,7 @@ export class RecipeModule {
   public imagePath: string ;
   public ingridients: ingridient[]
 
-  constructor  ( names:string, desc:string,imagePAth:string,ingridients:ingridient[]) {
+  constructor  (names:string ,desc:string ,imagePAth:string ,ingridients:ingridient[]) {
     this.name = names
     this.description = desc
     this.imagePath = imagePAth

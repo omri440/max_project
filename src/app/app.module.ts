@@ -15,13 +15,26 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { Routes,RouterModule,  } from '@angular/router';
+import {MatListModule} from '@angular/material/list';
+import { SatrtingrecipeComponent } from './components/satrtingrecipe/satrtingrecipe.component';
+import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 
 
-const Routes:Routes = [{path: '' ,component:RecipesComponent},
-{path: 'shopinglist' ,component:ShopingListComponent}]
+
+const Routes:Routes = [{path: '' ,redirectTo: '/recipes',pathMatch: 'full'},
+  {path: 'recipes' ,component:RecipesComponent,
+  children:[{path:'',component:SatrtingrecipeComponent},
+  {path:'new',component:AddRecipeComponent},
+  {path:':id',component:RecipesDetailComponent},
+  {path:':id/edit',component:AddRecipeComponent},
+]},
+{path: 'shopinglist' ,component:ShopingListComponent},
+]
 
 @NgModule({
   declarations: [
@@ -33,6 +46,8 @@ const Routes:Routes = [{path: '' ,component:RecipesComponent},
     RecipeItemComponent,
     ShopingListComponent,
     ShopingEditComponent,
+    SatrtingrecipeComponent,
+    AddRecipeComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +58,10 @@ const Routes:Routes = [{path: '' ,component:RecipesComponent},
     MatMenuModule,
     MatCardModule,
     FormsModule,
+    MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(Routes)
     
 

@@ -8,7 +8,8 @@ import { RecipesService } from 'src/app/services/recipes.service';
   styleUrls: ['./recipe-item.component.css']
 })
 export class RecipeItemComponent implements OnInit {
-  @Input() recipe: RecipeModule
+  @Input() recipe: RecipeModule ;
+  @Input() index: number ;
   
   
   constructor(private recipeService: RecipesService) { }
@@ -16,8 +17,5 @@ export class RecipeItemComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  onSelected() {
-    this.recipeService.onSelectedRecipe(this.recipe)
-  };
   }
 
