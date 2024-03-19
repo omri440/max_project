@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {NgForm, Form, FormBuilder, FormGroup, FormControl, Validators,FormArray } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { RecipeModule } from 'src/app/models/recipe/recipe.module';
 import { RecipesService } from 'src/app/services/recipes.service';
 import { ingridient } from 'src/app/shared/ingridient.model';
@@ -23,7 +23,7 @@ export class AddRecipeComponent implements OnInit {
   editmode = false ;
 
 
-  constructor(private route:ActivatedRoute, private recipeService:RecipesService) { }
+  constructor(private route:ActivatedRoute, private recipeService:RecipesService,private router:Router) { }
   
   ngOnInit(): void {
     this.route.params.subscribe((params:Params) => {
@@ -73,6 +73,7 @@ export class AddRecipeComponent implements OnInit {
       editRecipe.ingridients = this.recipeFormNew.value.ingridients
       this.recipeService.Recipes[this.id] = editRecipe
       this.recipeFormNew.reset()
+      this.router.navigate(['']);
      }
      else{
      let newRecipe = new RecipeModule(this.recipeFormNew.value.name,
@@ -82,7 +83,9 @@ export class AddRecipeComponent implements OnInit {
       console.log(newRecipe)
       this.recipeService.Recipes.push(newRecipe)
       this.recipeService.recipesSubject.next(this.recipeService.Recipes)
-      this.recipeFormNew.reset()}
+      this.recipeFormNew.reset()
+      this.router.navigate(['']);
+      }
     }
     getcontrols() { // a getter!
       return (<FormArray>this.recipeFormNew.get('ingridients')).controls;

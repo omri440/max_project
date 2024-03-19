@@ -27,6 +27,7 @@ export class RecipesListComponent implements OnInit, OnDestroy{
 onAddRecipe() {
   this.router.navigate(['new'],{relativeTo:this.route});
   }
+ 
 
   ngOnDestroy(): void {
     // Unsubscribe to avoid memory leaks

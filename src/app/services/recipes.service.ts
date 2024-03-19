@@ -2,6 +2,7 @@ import {  Injectable } from '@angular/core';
 import { RecipeModule } from '../models/recipe/recipe.module';
 import { ingridient } from '../shared/ingridient.model';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 
@@ -19,7 +20,7 @@ export class RecipesService {
  [new ingridient('bread',5),new ingridient('hamburger',5)])]
 
   
- constructor() { }
+ constructor(private router:Router) { }
 
  getRecipesOnstart(){
   return  this.Recipes.slice()
@@ -32,4 +33,12 @@ export class RecipesService {
   getRecipesById(index:number){
     return this.Recipes[index];
   }
+  onDeleteRecipe(index:number) {
+    this.Recipes.splice(index,1);
+    this.recipesSubject.next(this.Recipes)
+    this.router.navigate([''])
+   }
+   onAddRecipe(){
+
+   }
 }
