@@ -17,7 +17,7 @@ export class RecipesDetailComponent implements OnInit {
 
 
   recipeDetails: RecipeModule
-  id:number
+  id:number // hold the id of the recipe for showing its details 
   
   
   constructor(private shopinglistService: ShopingListService,private recipeService: RecipesService,
@@ -32,17 +32,19 @@ export class RecipesDetailComponent implements OnInit {
     )
   }
   
-  onAddIngridents(recipeDetails: RecipeModule) {
+  onAddIngridents(recipeDetails: RecipeModule) { //method for add all the ingridents 
+    //in the recipe to shoping list
     for (let i of recipeDetails.ingridients){
       this.shopinglistService.ingridientlist.push(i)
     };
   }
 
-  onEditRecipe() {
+  onEditRecipe() { // go to edit component by url with the corrcet index
+    // for the reipce item we want to edit
     this.router.navigate(['edit'],{relativeTo:this.activeroute});
     }
 
-    ondeleteRecipe(){
+    ondeleteRecipe(){ 
       this.recipeService.onDeleteRecipe(this.id)
     }
 

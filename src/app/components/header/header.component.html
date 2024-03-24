@@ -1,12 +1,33 @@
 
     <mat-toolbar>
-      <span>Max Project</span>
+      <span>Recipe Book</span>
       <span>
-      <button mat-button [matMenuTriggerFor]="menu">Menu</button>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item routerLink="/recipes" routerLinkActive="active">recipes</button>
-  <button mat-menu-item routerLink="/shopinglist" routerLinkActive="active">shoping-list</button>
-</mat-menu>
-</span>
-    </mat-toolbar>
+      <button mat-button [matMenuTriggerFor]="menu">
+        Menu
+      </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item
+           routerLink="/recipes"
+           routerLinkActive="active">
+              recipes
+          </button>
+        <button mat-menu-item
+        routerLink="/shopinglist" 
+        routerLinkActive="active">
+          shoping-list
+
+        </button>
+        </mat-menu>
+       </span>
+      <span>
+        <button mat-button
+          [matMenuTriggerFor]="Mange">
+           Mange Recipe
+        </button>
+        <mat-menu #Mange="matMenu">
+          <button mat-menu-item >Save Data</button>
+          <button mat-menu-item  >Fetch Data</button>
+        </mat-menu>
+      </span>
+   </mat-toolbar>
   

@@ -1,11 +1,18 @@
+<body>
+  
 <hr>
 <mat-card class="example-card">
     <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
+      <div mat-card-avatar class="example-header-image"><mat-icon>fastfood</mat-icon></div>
       <mat-card-title>Recipe Name: {{recipeDetails.name}}</mat-card-title>
-      <mat-card-subtitle>description of the recipe:{{recipeDetails.description}}</mat-card-subtitle>
+      <mat-card-subtitle><h4>description of the recipe:</h4>
+        <p>
+        {{recipeDetails.description}}
+      </p>
+      </mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image [src]="recipeDetails.imagePath" alt="Photo of RECIPE" style="max-height: 160px; max-width:160px;">
+    
+    <img mat-card-md-image [src]="recipeDetails.imagePath" alt="Photo of RECIPE" style="max-height: 160px; max-width:160px;">
     
     <h4>Ingridients for recipe:</h4>
     <mat-list role="list" *ngFor="let ingredient of recipeDetails.ingridients">
@@ -20,4 +27,4 @@
         </mat-menu>
     </mat-card-actions>
   </mat-card>
-  
+</body>

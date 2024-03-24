@@ -11,20 +11,20 @@ import { RecipesService } from 'src/app/services/recipes.service';
 })
 export class RecipesListComponent implements OnInit, OnDestroy{
   recipesSubscription: Subscription;
-  Recipes: RecipeModule[] 
+  Recipes: RecipeModule[] ;
   constructor(private recipesServices:RecipesService ,private router:Router
     ,private route: ActivatedRoute) { }
   
   ngOnInit(): void {
     this.recipesSubscription = this.recipesServices.getRecipes().subscribe(recipes1 => {
       this.Recipes = recipes1;
-      console.log(this.Recipes)
+      console.log(this.Recipes) ; // this for get recipes if there was change
     })
-    this.Recipes = this.recipesServices.getRecipesOnstart()
+    this.Recipes = this.recipesServices.getRecipesOnstart() // this for get recipes on the first time we chrage the app
 
   
 }
-onAddRecipe() {
+onAddRecipe() { // a method for navigate to add recipe component with new recipe
   this.router.navigate(['new'],{relativeTo:this.route});
   }
  

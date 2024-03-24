@@ -6,3 +6,8 @@
   input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
     border:1px solid red;
   }
+
+  .transparent-background{
+    background-color: rgba(147, 145, 145, 0.539); 
+    border-radius: 4px;
+  }

@@ -9,11 +9,14 @@ import { ingridient } from 'src/app/shared/ingridient.model';
   styleUrls: ['./shoping-list.component.css']
 })
 export class ShopingListComponent implements OnInit, OnDestroy{
-  ingridientlist:ingridient[]
-  private igChangeSub: Subscription 
+  
+  ingridientlist:ingridient[] ;
+  private igChangeSub: Subscription ;
+
   constructor(private ShopingListService:ShopingListService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { // again initail the form with the value from service and
+    // if we get event we subscribe to the new array 
     this.ingridientlist =this.ShopingListService.getingridients();
    this.igChangeSub = this.ShopingListService.ingridientChanges.subscribe((ingridients:ingridient[]) =>
     {
@@ -22,15 +25,15 @@ export class ShopingListComponent implements OnInit, OnDestroy{
   }
 
   onAddingri(ingridient: ingridient) {
-  this.ShopingListService.Addingris([ingridient])
+  this.ShopingListService.Addingris([ingridient]) ;
   }
 
-  ngOnDestroy(): void {
-   this.igChangeSub.unsubscribe()
+  ngOnDestroy(): void { // unsubscribe for not get data leak
+   this.igChangeSub.unsubscribe() ;
   }
 
-  onEditItem(index:number){
-    this.ShopingListService.ingridientIndexEdit.next(index)
+  onEditItem(index:number){ // send the index of the item we want to edit
+    this.ShopingListService.ingridientIndexEdit.next(index) ;
   }
   
   

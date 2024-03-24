@@ -7,17 +7,9 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./satrtingrecipe.component.css']
 })
 export class SatrtingrecipeComponent implements OnInit {
-  id:number
-   public editmode = false
-
-  constructor(private route:ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params:Params) => {
-      this.id = params['id'] ;
-      this.editmode = params['id'] != null;
-      console.log(this.editmode)
-    })
   }
 
 }

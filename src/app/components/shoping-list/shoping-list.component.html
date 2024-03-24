@@ -1,10 +1,15 @@
 <div class="row">
-    <app-shoping-edit (addNewingridEvent)="onAddingri($event)"></app-shoping-edit>
+    <app-shoping-edit
+     (addNewingridEvent)="onAddingri($event)">
+    </app-shoping-edit>
     <hr>
     <ul class="list-group">
-        <a (click)="onEditItem(i)" class="list-group-item" style="cursor: pointer;" *ngFor="let ingredient of ingridientlist; let i = index">
+        <a (click)="onEditItem(i)" 
+        class="list-group-item" 
+        style="cursor: pointer;" 
+        *ngFor="let ingredient of ingridientlist;
+         let i = index">
         {{ingredient.name}} ({{ingredient.amount}})
         </a>
-
     </ul>
 </div>

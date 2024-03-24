@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'max_project';
+  title = 'Recipe-Book';
   featureSelected = 'recipes'
 onChangeSection(feature:string) {
  this.featureSelected = feature;
