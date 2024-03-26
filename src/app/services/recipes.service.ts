@@ -28,7 +28,7 @@ export class RecipesService {
   
  constructor(private router:Router) { }
 
- setRecipes(recipes:RecipeModule[]){
+ setRecipes(recipes:RecipeModule[]){ // set this method for use it in data storage service when we fetch post from fire base so wi will initail the recipe array 
   this.Recipes = recipes ;
   this.recipesSubject.next(this.Recipes.slice()) ;
  }

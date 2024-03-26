@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { RecipesService } from './recipes.service';
 import { RecipeModule } from '../models/recipe/recipe.module';
 import { map } from 'rxjs/operators';
-import { ingridient } from '../shared/ingridient.model';
 
 @Injectable({
   providedIn: 'root'
