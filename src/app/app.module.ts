@@ -22,6 +22,7 @@ import { SatrtingrecipeComponent } from './components/satrtingrecipe/satrtingrec
 import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -62,6 +63,7 @@ const Routes:Routes = [{path: '' ,redirectTo: '/recipes',pathMatch: 'full'},
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot(Routes)
     
 
