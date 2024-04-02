@@ -23,18 +23,24 @@ import { AddRecipeComponent } from './components/add-recipe/add-recipe.component
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthComponent } from './components/auth/auth.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { AuthGuardService } from './components/auth/auth-guard.service';
 
 
 
 
-const Routes:Routes = [{path: '' ,redirectTo: '/recipes',pathMatch: 'full'},
-  {path: 'recipes' ,component:RecipesComponent,
+
+
+const Routes:Routes = [{path: '' ,redirectTo: '/auth',pathMatch: 'full'},
+  {path: 'recipes' ,component:RecipesComponent,canActivate:[AuthGuardService],
   children:[{path:'',component:SatrtingrecipeComponent},
   {path:'new',component:AddRecipeComponent},
   {path:':id',component:RecipesDetailComponent},
   {path:':id/edit',component:AddRecipeComponent},
 ]},
 {path: 'shopinglist' ,component:ShopingListComponent},
+{path: 'auth' ,component:AuthComponent},
 ]
 
 @NgModule({
@@ -49,6 +55,7 @@ const Routes:Routes = [{path: '' ,redirectTo: '/recipes',pathMatch: 'full'},
     ShopingEditComponent,
     SatrtingrecipeComponent,
     AddRecipeComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +71,7 @@ const Routes:Routes = [{path: '' ,redirectTo: '/recipes',pathMatch: 'full'},
     MatInputModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatProgressSpinnerModule,
     RouterModule.forRoot(Routes)
     
 

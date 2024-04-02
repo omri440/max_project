@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class ShopingListService {
-  ingridientlist =[new ingridient('test',6),new ingridient('tttt',6)] ;
+  ingridientlist =[] ;
   ingridientChanges = new Subject <ingridient[]>();
   ingridientIndexEdit = new Subject <number>();
 

@@ -1,0 +1,40 @@
+<hr>
+<div class="container" *ngIf="!isWaitingRespone">
+  <div class="container" *ngIf="errorMessage">
+    <div class="alert alert-danger">
+      <p>{{errorMessage}}</p>
+    </div>
+  </div>
+<form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+    <div class="form-group" >
+      <label for="Email" style="color: white;">Email address</label>
+      <input type="email" class="form-control" 
+      required email
+      name="email"
+      id="exampleInputEmail1"  
+      placeholder="Enter email" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="Password" style="color: white;">Password</label>
+      <input type="password" class="form-control" 
+      required
+      minlength="6"
+      ngModel
+      name="password"
+      placeholder="Password">
+    </div>
+    <div class="col-xl-12" style="align-items: center;">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!authForm.valid">
+            {{isLogin ? 'Login' : 'SignUp'}}
+        </button>
+        <button mat-raised-button color="sucsses" type="button" (click)="onSwitchLogin()">
+            {{isLogin ? 'change to signUP' : 'change to login'}}
+        </button>
+    </div>
+  </form>
+</div>
+<div class="container" *ngIf="isWaitingRespone">
+  <mat-spinner></mat-spinner>
+
+</div>
+            

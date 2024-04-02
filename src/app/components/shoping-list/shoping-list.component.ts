@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
+import { DataStorgeService } from 'src/app/services/data-storge.service';
 import { ShopingListService } from 'src/app/services/shoping-list.service';
 import { ingridient } from 'src/app/shared/ingridient.model';
 
@@ -9,11 +10,12 @@ import { ingridient } from 'src/app/shared/ingridient.model';
   styleUrls: ['./shoping-list.component.css']
 })
 export class ShopingListComponent implements OnInit, OnDestroy{
+
   
   ingridientlist:ingridient[] ;
   private igChangeSub: Subscription ;
 
-  constructor(private ShopingListService:ShopingListService) { }
+  constructor(private ShopingListService:ShopingListService , private dsService:DataStorgeService) { }
 
   ngOnInit(): void { // again initail the form with the value from service and
     // if we get event we subscribe to the new array 
@@ -36,7 +38,13 @@ export class ShopingListComponent implements OnInit, OnDestroy{
     this.ShopingListService.ingridientIndexEdit.next(index) ;
   }
   
-  
+  onSaveingri() {
+    this.dsService.ingriStore();
+    }
+
+  onFetchIngri(){
+    this.dsService.ingriFetch()
+  }
   
   
 

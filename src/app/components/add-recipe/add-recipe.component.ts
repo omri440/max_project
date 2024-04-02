@@ -73,7 +73,7 @@ export class AddRecipeComponent implements OnInit {
       editRecipe.ingridients = this.recipeFormNew.value.ingridients ;
       this.recipeService.Recipes[this.id] = editRecipe;
       this.recipeFormNew.reset() ;
-      this.router.navigate(['']) ;
+      this.router.navigate(['recipes']) ;
      }
      else{
      let newRecipe = new RecipeModule(this.recipeFormNew.value.name,
@@ -84,7 +84,7 @@ export class AddRecipeComponent implements OnInit {
       this.recipeService.Recipes.push(newRecipe) // add it to the recipes in this component
       this.recipeService.recipesSubject.next(this.recipeService.Recipes) // send next req to update it on the service 
       this.recipeFormNew.reset()
-      this.router.navigate(['']);
+      this.router.navigate(['recipes']);
       }
     }
     getcontrols() { // a method that implement to reach all the ingridents line in the form from the html file 
