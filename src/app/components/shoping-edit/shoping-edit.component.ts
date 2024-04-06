@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subscription, forkJoin } from 'rxjs';
 import { ShopingListService } from 'src/app/services/shoping-list.service';
@@ -21,7 +21,7 @@ export class ShopingEditComponent implements OnInit,OnDestroy {
   subscription: Subscription ;
   itemToEdit:ingridient ;
 
-  constructor(private slService:ShopingListService) { }
+  constructor(private slService:ShopingListService,private cdr: ChangeDetectorRef) { }
   
   
   ngOnInit(): void { // inital the slForm with the edit ingrident if we get event on ingridientIndexEdit else it inital with null
@@ -32,7 +32,9 @@ export class ShopingEditComponent implements OnInit,OnDestroy {
       this.slForm.setValue({
         'name': this.itemToEdit.name,
         'amount': this.itemToEdit.amount
-      });
+      }
+      )
+      this.cdr.detectChanges();;
     })
   }
   

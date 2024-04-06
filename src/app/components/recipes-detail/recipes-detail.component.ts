@@ -30,7 +30,7 @@ export class RecipesDetailComponent implements OnInit {
     )
   }
   
-  onAddIngridents(recipeDetails: RecipeModule) { //method for add all the ingridents 
+  onAddIngridients(recipeDetails: RecipeModule) { //method for add all the ingridents 
     //in the recipe to shoping list
     for (let ingredient of recipeDetails.ingridients){
       this.shopinglistService.ingridientlist.push(ingredient)
@@ -42,7 +42,7 @@ export class RecipesDetailComponent implements OnInit {
     this.router.navigate(['edit'],{relativeTo:this.activeroute});
     }
 
-    ondeleteRecipe(){ 
+    onDeleteRecipe(){ 
       this.recipeService.onDeleteRecipe(this.id)
     }
 
