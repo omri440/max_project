@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -15,7 +15,7 @@ export class AuthComponent implements OnInit {
   public isLogin: boolean = true;
   public errorMessage: string;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router,private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {}
 
@@ -32,8 +32,10 @@ export class AuthComponent implements OnInit {
       const password = authform.value.password;
       if (this.isLogin) {
         authObs = this.authService.login(email, password);
+        this.cdr.detectChanges()
       } else {
         authObs = this.authService.sighUp(email, password);
+        this.cdr.detectChanges()
       }
 
       authObs.subscribe(
@@ -41,10 +43,12 @@ export class AuthComponent implements OnInit {
           this.isWaitingRespone = false;
           this.errorMessage = '';
           this.router.navigate(['/recipes']);
+          this.cdr.detectChanges()
         },
         (errorMessage) => {
           this.isWaitingRespone = false;
           this.errorMessage = errorMessage;
+          this.cdr.detectChanges()
         }
       );
     }
