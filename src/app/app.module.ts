@@ -16,7 +16,6 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { Routes,RouterModule,  } from '@angular/router';
 import {MatListModule} from '@angular/material/list';
 import { SatrtingrecipeComponent } from './components/satrtingrecipe/satrtingrecipe.component';
 import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
@@ -25,23 +24,16 @@ import {MatInputModule} from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthComponent } from './components/auth/auth.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { AuthGuardService } from './components/auth/auth-guard.service';
+import { AlertComponent } from './components/alert/alert.component';
+import { DynamicChildLoaderDirective } from './directives/dynamic-child-loader.directive';
+import { AppRoutingModule } from './app-routing.module';
 
 
 
 
 
 
-const Routes:Routes = [{path: '' ,redirectTo: '/auth',pathMatch: 'full'},
-  {path: 'recipes' ,component:RecipesComponent,canActivate:[AuthGuardService],
-  children:[{path:'',component:SatrtingrecipeComponent},
-  {path:'new',component:AddRecipeComponent},
-  {path:':id',component:RecipesDetailComponent},
-  {path:':id/edit',component:AddRecipeComponent},
-]},
-{path: 'shopinglist' ,component:ShopingListComponent},
-{path: 'auth' ,component:AuthComponent},
-]
+
 
 @NgModule({
   declarations: [
@@ -56,6 +48,8 @@ const Routes:Routes = [{path: '' ,redirectTo: '/auth',pathMatch: 'full'},
     SatrtingrecipeComponent,
     AddRecipeComponent,
     AuthComponent,
+    AlertComponent,
+    DynamicChildLoaderDirective,
   ],
   imports: [
     BrowserModule,
@@ -72,9 +66,7 @@ const Routes:Routes = [{path: '' ,redirectTo: '/auth',pathMatch: 'full'},
     ReactiveFormsModule,
     HttpClientModule,
     MatProgressSpinnerModule,
-    RouterModule.forRoot(Routes)
-    
-
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

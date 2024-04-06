@@ -1,6 +1,6 @@
-<body>
   
-<hr>
+<div class="row">
+  
 <mat-card class="example-card">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"><mat-icon>fastfood</mat-icon></div>
@@ -15,7 +15,7 @@
     <img mat-card-md-image [src]="recipeDetails.imagePath" alt="Photo of RECIPE" style="max-height: 160px; max-width:160px;">
     
     <h4>Ingridients for recipe:</h4>
-    <mat-list role="list" *ngFor="let ingredient of recipeDetails.ingridients">
+    <mat-list role="list" *ngFor="let ingredient of recipeDetails.ingridients ; trackBy: trackBy ">
       <mat-list-item role="listitem">{{ingredient.name}}-{{ingredient.amount}}</mat-list-item>
     </mat-list>
     <mat-card-actions>
@@ -27,4 +27,4 @@
         </mat-menu>
     </mat-card-actions>
   </mat-card>
-</body>
+</div>

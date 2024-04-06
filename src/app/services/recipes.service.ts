@@ -12,9 +12,9 @@ import { DataStorgeService } from './data-storge.service';
 })
 export class RecipesService {
 
-  recipesSubject: BehaviorSubject<RecipeModule[]> = new BehaviorSubject<RecipeModule[]>([]);
-  RecipeId:number ;
-  Recipes: RecipeModule[] = []
+  public recipesSubject: BehaviorSubject<RecipeModule[]> = new BehaviorSubject<RecipeModule[]>([]);
+  public RecipeId:number ;
+  public Recipes: RecipeModule[] = []
 
   
  constructor(private router:Router) { }
@@ -24,9 +24,7 @@ export class RecipesService {
   this.recipesSubject.next(this.Recipes.slice()) ;
  }
 
- getRecipesOnstart(){// get recipe in first time
-  return  this.Recipes ;
- }
+ 
  getRecipes(): Observable<RecipeModule[]> { // get reicpes when we have change
   return this.recipesSubject.asObservable() ;
 }

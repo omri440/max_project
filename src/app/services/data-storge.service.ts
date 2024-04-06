@@ -19,7 +19,7 @@ export class DataStorgeService {
   ) {}
 
   storeReicpes() {
-    const recipes = this.recipeSerivce.getRecipesOnstart();
+    const recipes = this.recipeSerivce.getRecipes();
     this.http
       .put(
         'https://ng-recipe-book-e9b48-default-rtdb.firebaseio.com/recipes.json',
@@ -29,7 +29,6 @@ export class DataStorgeService {
         }
       )
       .subscribe((cb) => {
-        console.log(cb);
       });
   }
 
@@ -53,7 +52,6 @@ export class DataStorgeService {
       )
       .subscribe((recipes) => {
         this.recipeSerivce.setRecipes(recipes);
-        console.log(this.authService.token);
       });
   }
 
@@ -68,7 +66,6 @@ export class DataStorgeService {
         }
       )
       .subscribe((cb) => {
-        console.log(cb);
         alert('save succesfully')
       });
   }

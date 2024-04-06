@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subscription, forkJoin } from 'rxjs';
 import { ShopingListService } from 'src/app/services/shoping-list.service';
@@ -7,7 +7,8 @@ import { ingridient } from 'src/app/shared/ingridient.model';
 @Component({
   selector: 'app-shoping-edit',
   templateUrl: './shoping-edit.component.html',
-  styleUrls: ['./shoping-edit.component.css']
+  styleUrls: ['./shoping-edit.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShopingEditComponent implements OnInit,OnDestroy {
 

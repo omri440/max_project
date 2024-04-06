@@ -1,17 +1,12 @@
 <hr>
 <div class="container" *ngIf="!isWaitingRespone">
-  <div class="container" *ngIf="errorMessage">
-    <div class="alert alert-danger">
-      <p>{{errorMessage}}</p>
-    </div>
-  </div>
+  <app-alert [errorMessage]="errorMessage" *ngIf="errorMessage" (close)="errorMessage = ''"></app-alert>
 <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
     <div class="form-group" >
       <label for="Email" style="color: white;">Email address</label>
       <input type="email" class="form-control" 
       required email
-      name="email"
-      id="exampleInputEmail1"  
+      name="email" 
       placeholder="Enter email" ngModel>
     </div>
     <div class="form-group">

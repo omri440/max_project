@@ -12,7 +12,6 @@ export class AppComponent implements OnInit {
   title = 'Recipe-Book';
   
   ngOnInit(): void {
-    this.authService.autoLogin()
-    console.log(this.authService.user)
+    this.authService.autoLogin() ;
   }
 }

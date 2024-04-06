@@ -20,7 +20,6 @@ export class ShopingListService {
     this.ingridientlist.push(new ingridient(newIngridient.name,newIngridient.amount))
     }
     Addingris(newIngridients: ingridient[]) { // add ingridents from the recipe to shoping list 
-      console.log(newIngridients) ;
       this.ingridientlist.push(...newIngridients) ;
       this.ingridientChanges.next(this.ingridientlist.slice()) ;
       }

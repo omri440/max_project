@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { DataStorgeService } from 'src/app/services/data-storge.service';
@@ -6,7 +6,8 @@ import { DataStorgeService } from 'src/app/services/data-storge.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit,OnDestroy {
 
@@ -16,10 +17,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
 
   ngOnInit(): void {
     this.userSub = this.authService.user.subscribe(userRes => {
-      console.log(userRes)
-      
       this.isAuth = !userRes ? false : true;
-      console.log(this.isAuth)
     })
   }
 

@@ -20,7 +20,7 @@ export interface authResponseData {
 export class AuthService {
   user = new BehaviorSubject<User>(null);
   token: string = null;
-  private tokenExpartion:any
+  private tokenExpartion: any;
   constructor(private http: HttpClient, private router: Router) {}
 
   sighUp(userName: string, password: string) {
@@ -71,11 +71,11 @@ export class AuthService {
       );
   }
 
-  authHandler(email: string, id: string, token: string ,expiresIn: number) {
-    const exparitonDate = new Date(new Date().getTime() + expiresIn*1000);
+  authHandler(email: string, id: string, token: string, expiresIn: number) {
+    const exparitonDate = new Date(new Date().getTime() + expiresIn * 1000);
     const user = new User(email, id, token, exparitonDate);
     this.user.next(user);
-    this.autoLogOut(expiresIn*1000)
+    this.autoLogOut(expiresIn * 1000);
     localStorage.setItem('userData', JSON.stringify(user));
   }
 
@@ -97,15 +97,20 @@ export class AuthService {
       );
       if (loadedUser.token) {
         this.user.next(loadedUser);
-        this.autoLogOut(new Date(userData._tokenExpairationDate).getTime() - new Date().getTime())
-        this.token = loadedUser.token
+        this.autoLogOut(
+          new Date(userData._tokenExpairationDate).getTime() -
+            new Date().getTime()
+        );
+        this.token = loadedUser.token;
       }
     }
   }
-  autoLogOut(exparitonDuration:number){
+  autoLogOut(exparitonDuration: number) {
     this.tokenExpartion = setTimeout(() => {
-      this.logout()
+      this.logout();
     }, exparitonDuration);
+
+    clearTimeout(this.tokenExpartion);
   }
 
   errorHandler(errorRes: HttpErrorResponse) {
@@ -129,11 +134,11 @@ export class AuthService {
 
   logout() {
     this.user.next(null);
-    localStorage.removeItem('userData')
+    localStorage.removeItem('userData');
     this.router.navigate(['']);
-    if (this.tokenExpartion){
-      clearTimeout(this.tokenExpartion)
+    if (this.tokenExpartion) {
+      clearTimeout(this.tokenExpartion);
     }
-    this.tokenExpartion = null
+    this.tokenExpartion = null;
   }
 }
