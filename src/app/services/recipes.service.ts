@@ -29,6 +29,9 @@ export class RecipesService {
   return this.recipesSubject.asObservable() ;
 }
 
+getRecipesaslist(){
+  return this.Recipes.slice()
+}
   
   getRecipesById(index:number){ // get recipes by id 
     return this.Recipes[index] ;

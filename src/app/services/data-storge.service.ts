@@ -19,7 +19,7 @@ export class DataStorgeService {
   ) {}
 
   storeReicpes() {
-    const recipes = this.recipeSerivce.getRecipes();
+    const recipes = this.recipeSerivce.getRecipesaslist();
     this.http
       .put(
         'https://ng-recipe-book-e9b48-default-rtdb.firebaseio.com/recipes.json',
@@ -42,7 +42,7 @@ export class DataStorgeService {
       )
       .pipe(
         map((recipes) => {
-          return recipes.map((recipe) => {
+          return recipes.map(recipe => {
             return {
               ...recipe,
               ingridients: recipe.ingridients ? recipe.ingridients : [],
