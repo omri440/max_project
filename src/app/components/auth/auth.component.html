@@ -9,6 +9,7 @@
       name="email" 
       placeholder="Enter email" ngModel>
     </div>
+    <app-validation-control [control]="authForm.controls.email" [errorMessage]="'Email is not valid'"></app-validation-control>
     <div class="form-group">
       <label for="Password" style="color: white;">Password</label>
       <input type="password" class="form-control" 
@@ -18,7 +19,8 @@
       name="password"
       placeholder="Password">
     </div>
-    <div class="col-xl-12" style="align-items: center;">
+    <app-validation-control [control]="authForm.controls.password" [errorMessage]="'Password is not valid'"></app-validation-control>
+    <div class="col-xl-12 button-section" style="align-items: center;">
         <button mat-raised-button color="primary" type="submit" [disabled]="!authForm.valid">
             {{isLogin ? 'Login' : 'SignUp'}}
         </button>
