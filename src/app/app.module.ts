@@ -22,6 +22,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RecipesModule } from './modules/recipes/recipes.module';
 import { ValidationControlComponent } from './components/validation-control/validation-control.component';
 import { ShoppingListModule } from './modules/shopping-list/shopping-list.module';
+import { OpenPageComponent } from './components/open-page/open-page.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ShoppingListModule } from './modules/shopping-list/shopping-list.module
     AlertComponent,
     DynamicChildLoaderDirective,
     ValidationControlComponent,
+    OpenPageComponent,
   ],
   imports: [
     BrowserModule,
