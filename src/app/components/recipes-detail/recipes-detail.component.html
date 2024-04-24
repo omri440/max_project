@@ -1,0 +1,30 @@
+<div class="row">
+  <mat-card class="recipe-card">
+    <mat-card-header>
+      <div mat-card-avatar class="recipe-avatar"><mat-icon>fastfood</mat-icon></div>
+      <mat-card-title>Recipe Name: {{ recipeDetails.name }}</mat-card-title>
+      <mat-card-subtitle>Description of the recipe:</mat-card-subtitle>
+      <p class="recipe-description">{{ recipeDetails.description }}</p>
+    </mat-card-header>
+    
+    <img mat-card-image [src]="recipeDetails.imagePath" alt="Photo of Recipe" class="recipe-image">
+    
+    <mat-card-content>
+      <h4>Ingredients for Recipe:</h4>
+      <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let ingredient of recipeDetails.ingridients; trackBy: trackBy">
+          {{ ingredient.name }} - {{ ingredient.amount }}
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+    
+    <mat-card-actions>
+      <button mat-button [matMenuTriggerFor]="menu" class="manage-button">Manage Recipe</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="onAddIngridients(recipeDetails)">To Shopping List</button>
+        <button mat-menu-item (click)="onEditRecipe()">Edit Recipe</button>
+        <button mat-menu-item (click)="onDeleteRecipe()">Delete Recipe</button>
+      </mat-menu>
+    </mat-card-actions>
+  </mat-card>
+</div>

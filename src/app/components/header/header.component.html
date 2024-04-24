@@ -1,0 +1,49 @@
+
+    <mat-toolbar>
+      <span routerLink="" 
+      style="cursor: pointer;"
+      class="header-title"
+      routerLinkActive="active">Recipe Book</span>
+      <span>
+      <button mat-button [matMenuTriggerFor]="menu">
+        Menu
+      </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item
+           routerLink="/recipes"
+           routerLinkActive="active"
+           [disabled]="!isAuth">
+              recipes
+          </button>
+        <button mat-menu-item
+        routerLink="/shopinglist" 
+        routerLinkActive="active">
+          shoping-list
+
+        </button>
+        </mat-menu>
+       </span>
+      <span>
+        <button mat-button
+          [matMenuTriggerFor]="Mange"
+          [disabled]="!isAuth">
+           Mange Recipe
+        </button>
+        <mat-menu #Mange="matMenu">
+          <button mat-menu-item  (click)="onSavePost()">Save Data</button>
+          <button mat-menu-item  (click)="onfetchRecipes()">Fetch Data</button>
+        </mat-menu>
+      </span>
+      <span>
+        <button mat-button
+           routerLink="/auth">
+          Authentication        
+        </button>
+      </span>
+      <span>
+        <button mat-button *ngIf="isAuth" (click)="onLogout()">
+          logout
+        </button>
+      </span>
+   </mat-toolbar>
+  
