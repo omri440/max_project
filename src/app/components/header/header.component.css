@@ -1,3 +1,9 @@
 .mat-toolbar{
-    background-color: rgba(230, 234, 238, 0.689); 
+    background-color: rgba(117, 124, 132, 0.689); 
+}
+.header-title{
+    transition: background-color 0.3s ease; 
+}
+.header-title:hover{
+    background-color: rgb(153, 153, 153,0.3);
 }

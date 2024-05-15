@@ -1,5 +1,5 @@
 import { formatDate } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute,Params, Router } from '@angular/router';
 import { RecipeModule } from 'src/app/models/recipe/recipe.module';
@@ -10,15 +10,13 @@ import { ingridient } from 'src/app/shared/ingridient.model';
 @Component({
   selector: 'app-recipes-detail',
   templateUrl: './recipes-detail.component.html',
-  styleUrls: ['./recipes-detail.component.css']
+  styleUrls: ['./recipes-detail.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RecipesDetailComponent implements OnInit {
   
-
-
-  recipeDetails: RecipeModule
-  id:number // hold the id of the recipe for showing its details 
-  
+  public recipeDetails: RecipeModule
+  public id:number // hold the id of the recipe for showing its details 
   
   constructor(private shopinglistService: ShopingListService,private recipeService: RecipesService,
      private activeroute:ActivatedRoute,private router:Router) { }
@@ -32,10 +30,10 @@ export class RecipesDetailComponent implements OnInit {
     )
   }
   
-  onAddIngridents(recipeDetails: RecipeModule) { //method for add all the ingridents 
+  onAddIngridients(recipeDetails: RecipeModule) { //method for add all the ingridents 
     //in the recipe to shoping list
-    for (let i of recipeDetails.ingridients){
-      this.shopinglistService.ingridientlist.push(i)
+    for (let ingredient of recipeDetails.ingridients){
+      this.shopinglistService.ingridientlist.push(ingredient)
     };
   }
 
@@ -44,8 +42,12 @@ export class RecipesDetailComponent implements OnInit {
     this.router.navigate(['edit'],{relativeTo:this.activeroute});
     }
 
-    ondeleteRecipe(){ 
+    onDeleteRecipe(){ 
       this.recipeService.onDeleteRecipe(this.id)
     }
 
+
+    trackBy(index: number, item): number {
+      return item.id;
+    }
 }

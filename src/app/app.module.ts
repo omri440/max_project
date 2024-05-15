@@ -16,26 +16,24 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { Routes,RouterModule,  } from '@angular/router';
 import {MatListModule} from '@angular/material/list';
 import { SatrtingrecipeComponent } from './components/satrtingrecipe/satrtingrecipe.component';
 import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthComponent } from './components/auth/auth.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { AlertComponent } from './components/alert/alert.component';
+import { DynamicChildLoaderDirective } from './directives/dynamic-child-loader.directive';
+import { AppRoutingModule } from './app-routing.module';
 
 
 
 
-const Routes:Routes = [{path: '' ,redirectTo: '/recipes',pathMatch: 'full'},
-  {path: 'recipes' ,component:RecipesComponent,
-  children:[{path:'',component:SatrtingrecipeComponent},
-  {path:'new',component:AddRecipeComponent},
-  {path:':id',component:RecipesDetailComponent},
-  {path:':id/edit',component:AddRecipeComponent},
-]},
-{path: 'shopinglist' ,component:ShopingListComponent},
-]
+
+
+
 
 @NgModule({
   declarations: [
@@ -49,6 +47,9 @@ const Routes:Routes = [{path: '' ,redirectTo: '/recipes',pathMatch: 'full'},
     ShopingEditComponent,
     SatrtingrecipeComponent,
     AddRecipeComponent,
+    AuthComponent,
+    AlertComponent,
+    DynamicChildLoaderDirective,
   ],
   imports: [
     BrowserModule,
@@ -64,9 +65,8 @@ const Routes:Routes = [{path: '' ,redirectTo: '/recipes',pathMatch: 'full'},
     MatInputModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(Routes)
-    
-
+    MatProgressSpinnerModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

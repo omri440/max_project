@@ -1,5 +1,9 @@
 .transparent-background{
     background-color: rgba(147, 145, 145, 0.539); 
-    border-radius: 4px;
+    border-radius: 4rem;
     size: inherit;
+  }
+
+  .row{
+    margin-top: 20px;
   }
