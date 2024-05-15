@@ -1,0 +1,37 @@
+
+
+  .row {
+    margin-top: 20px;
+  }
+  
+  .recipe-card {
+    width: 400px; /* Adjust card width as needed */
+  }
+  
+  .recipe-avatar {
+    background-color: #9c9696; /* Use your desired color */
+  }
+  
+  .recipe-description {
+    margin-top: 10px;
+  }
+  
+  .recipe-image {
+    max-height: 160px;
+    max-width: 160px;
+    margin: 20px auto; /* Center the image */
+  }
+  
+  .ingredient-list {
+    margin: 20px 0;
+  }
+  
+  .manage-button {
+    color: #f44336; /* Button text color */
+  }
+  
+  .manage-button:hover {
+    background-color: #f44336; /* Button hover background color */
+    color: white; /* Button hover text color */
+  }
+  

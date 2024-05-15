@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-xs-12">
+        <app-recipe-item *ngFor="let recipeEL of Recipes ; let i = index ; trackBy: trackBy" 
+        [index]="i" 
+        [recipe]="recipeEL">
+        </app-recipe-item>
+    </div>
+</div>
+<div class="row">
+<div class="col-xs-12">
+    <button mat-raised-button color="success" (click)="onAddRecipe()">
+        Add Recipe
+    </button>
+
+</div>
+</div>
