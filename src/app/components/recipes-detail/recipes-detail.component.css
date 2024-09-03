@@ -1,4 +1,6 @@
-
+.transparent-grey {
+  background-color: rgba(128, 128, 128, 0.5); /* 50% transparent grey */
+}
 
   .row {
     margin-top: 20px;
