@@ -1,8 +1,8 @@
 .wrap {
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  flex: 1;
+  flex-direction:column;
+  flex:content;
   overflow: hidden;
 
 }
@@ -10,9 +10,21 @@
 .top, .bottom {
   position: relative;
   z-index: 1;
-  height: 50vh;
+  height: 100vh;
 }
 
+.bottom{
+  /* background-image: url("src\assets\Screenshot 2024-09-03 115651.png"); */
+  background-size:contain;
+  background-repeat: no-repeat;
+  margin-left: 100vh;
+}
+.top{
+/* background-image: url("src\assets\Screenshot 2024-09-03 115607.png"); */
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: 100vh;
+}
 .button {
   align-self: center;
   background: #222;
@@ -20,7 +32,7 @@
   padding: 15px 30px;
   cursor: pointer;
   z-index: 2;
-  margin: -24px 0;
+  margin-top: 50vh;
 }
 
 .up {

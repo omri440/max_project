@@ -68,8 +68,9 @@ export class ShopingEditComponent implements OnInit, OnDestroy {
 
   onDelete() {
     this.slService.onDeleteingri(this.indexItemEdit);
-    this.editmode = false;
     this.slForm.reset();
+    this.editmode = false;
+    console.log(this.editmode)
   }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

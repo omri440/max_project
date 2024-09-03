@@ -23,7 +23,7 @@ import { RecipesModule } from './modules/recipes/recipes.module';
 import { ValidationControlComponent } from './components/validation-control/validation-control.component';
 import { ShoppingListModule } from './modules/shopping-list/shopping-list.module';
 import { OpenPageComponent } from './components/open-page/open-page.component';
-
+import {MatTableModule} from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +51,8 @@ import { OpenPageComponent } from './components/open-page/open-page.component';
     MatProgressSpinnerModule,
     AppRoutingModule,
     RecipesModule,
-    ShoppingListModule
+    ShoppingListModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

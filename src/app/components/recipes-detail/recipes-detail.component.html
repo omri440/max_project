@@ -1,10 +1,12 @@
 <div class="row">
   <mat-card class="recipe-card">
     <mat-card-header>
-      <div mat-card-avatar class="recipe-avatar"><mat-icon>fastfood</mat-icon></div>
+      <!-- <div mat-card-avatar class="recipe-avatar"><mat-icon>fastfood</mat-icon></div> -->
       <mat-card-title>Recipe Name: {{ recipeDetails.name }}</mat-card-title>
-      <mat-card-subtitle>Description of the recipe:</mat-card-subtitle>
-      <p class="recipe-description">{{ recipeDetails.description }}</p>
+      <mat-card-subtitle>Description of the recipe:
+        <p class="recipe-description">{{ recipeDetails.description }}</p>
+      </mat-card-subtitle>
+      
     </mat-card-header>
     
     <img mat-card-image [src]="recipeDetails.imagePath" alt="Photo of Recipe" class="recipe-image">

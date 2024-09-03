@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
   animations: [
     trigger('divState', [
       state('start', style({
-        backgroundColor: 'blue',
         transform: 'translateY(0)',
         opacity: '1'
       })),
@@ -19,17 +18,14 @@ import { Router } from '@angular/router';
         opacity: '1'
       })),
       state('end1', style({
-        backgroundColor: 'blue',
         transform: 'translateY(-100%)',
         opacity: '0'
       })),
       state('end2', style({
-        backgroundColor: 'green',
         transform: 'translateY(100%)',
         opacity: '0'
       })),
       state('endButton', style({
-        backgroundColor: 'red',
         transform: 'translateX(-100%)',
         opacity: '0'
       })),
